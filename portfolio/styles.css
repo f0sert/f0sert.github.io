@@ -1,6 +1,6 @@
 
     :root{
-      --bg:#0b1020; --bg2:#0a0f1a; --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+      --bg:#0b1020; --bg2:#0a0f1a; --card:rgba(255,255,255,.01); --border:rgba(255,255,255,.06);
       --text:#eaf0f7; --muted:#98a6bd; --brand:#7c9eff; --brand2:#7c3aed; --shadow:0 20px 60px rgba(0,0,0,.45);
     }
     /* Обновлённая светлая тема в портфолио — идентична bio */

@@ -2,14 +2,14 @@
     :root{
       --bg: #0b1020;
       --bg2:#0a0f1a;
-      --card: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.12);
+      --card: rgba(255,255,255,.01);
+      --border: rgba(255,255,255,.04);
       --text:#eaf0f7;
       --muted:#98a6bd;
       --brand:#7c9eff;
       --brand2:#7c3aed;
       --ok:#22c55e; --warn:#f59e0b;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
     }
     /* Обновлённая светлая тема: мягкий фон, контрастные элементы */
     html.theme-light{
@@ -58,20 +58,115 @@
       text-decoration: none;
     }
 
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+/* ----- MEDIA PLAYER ----- */
+
+.player {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0b0b0c;
+  color: #f3f4f6;
+  /* Настройки визуала бордера и прогресса */
+  --accent: #16a34a;
+  --track-color: rgba(255,255,255,0.16);
+  --glow-outer: rgba(22,163,74,0.65);
+  --glow-inner: rgba(22,163,74,0.35);
+  --stroke: 3px;   /* толщина линии прогресса */
+
+}
+
+/* Полупрозрачная обложка */
+.player .cover {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.player .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+}
+
+/* Контент поверх */
+.player > *:not(.cover):not(.unlock):not(.player-border) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Оверлей запуска с блюром */
+.player .unlock {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  font: 600 18px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  color: #fff;
+  background: rgba(0,0,0,0.28);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  border: 0;
+  cursor: pointer;
+  transition: opacity 240ms ease;
+}
+.player .unlock.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Небольшая типографика */
+.player h2 {
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
+.player .track-info .artist {
+  opacity: 0.9;
+  font-size: 14px;
+  color: gray;
+}
+
+/* Оверлей */
+.unlock {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  font: bold 18px sans-serif;
+  color: #fff;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  border: none;
+  cursor: pointer;
+}
+.unlock.hidden {
+  display: none;
+}
+
+
     /* Actions + компактные кнопки */
     .actions{display:flex; gap:10px; justify-content:flex-end; margin-bottom:12px}
     .btn{
-      appearance:none; border:1px solid var(--border); background:rgba(255,255,255,.06);
+      appearance:none; border:1px solid var(--border); background:rgba(255,255,255,.01);
       color:var(--text); padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:800;
       text-decoration:none; display:inline-flex; align-items:center; line-height:1; font-size:14px; min-height:36px;
       transition: transform .12s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.04);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.01);
     }
     .btn:hover{transform: translateY(-1px); border-color: rgba(124,58,237,.35)}
     .btn.primary{
       background: linear-gradient(135deg, var(--brand), var(--brand2));
       border-color: transparent; color: #fff;
-      box-shadow: 0 10px 22px rgba(124,58,237,.24);
+      box-shadow: 0 10px 22px rgba(124,58,237,.14);
     }
 
     .chips{display:flex; gap:8px; flex-wrap:wrap; margin:10px 0 14px}

@@ -12,20 +12,45 @@
 <body>
   <div class="wrap">
     <div class="actions">
-      <button id="theme" class="btn" aria-label="Переключить тему">Темная тема</button>
-      <!-- <button class="btn" title="Язык интерфейса">RU</button> -->
+      <!-- <button id="theme" class="btn" aria-label="Переключить тему">Темная тема</button>
+      <button class="btn" title="Язык интерфейса">RU</button> -->
     </div>
     <div class="layout">
       <!-- LEFT: Время / Дата -->
-      <aside class="left card">
-        <h2>Сейчас</h2>
-        <div class="time" id="clock">1</div>
-        <div class="date" id="date">1</div>
-        <!-- <div class="wx">
-          <span class="wx-badge">Погода</span>
-          <span id="weather">Небольшой ливневый дождь, 14.7 °C</span>
-        </div> -->
-      </aside>
+      <!-- LEFT: Время / Дата -->
+      <div class="left-column">
+<aside class="left card">
+  <h2>Сейчас</h2>
+  <div class="time" id="clock">1</div>
+  <div class="date" id="date">1</div>
+</aside>
+
+<!-- MEDIA PLAYER -->
+<aside class="card player" id="player">
+  <!-- Фон-обложка -->
+  <div class="cover">
+    <img src="https://i1.sndcdn.com/artworks-vtxCkApWPl7h08pa-tDoobA-t500x500.jpg" alt="Обложка трека">
+  </div>
+
+  <!-- Оверлей запуска -->
+  <button class="unlock" id="unlock" aria-label="Нажми, чтобы начать проигрывание">
+    Нажми на меня ☺️
+  </button>
+
+  <h2>Медиаплеер</h2>
+  <div class="track-info">
+    <div class="artist">Whole Lotta Swag — Разница</div>
+  </div>
+
+  <!-- Аудио (цикл, без контролов) -->
+  <audio
+    id="audio"
+    src="http://relax-fm.net/uploads/music/2024/06/Whole_Lotta_Swag_Raznica.mp3"
+    loop>
+  </audio>
+</aside>
+
+</div>
 
       <!-- CENTER: Интро / Описание -->
       <section class="center card intro">

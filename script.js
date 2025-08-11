@@ -5,24 +5,31 @@
       document.body.classList.add('fade-out');
       setTimeout(() => window.location = href, 400);
     }
+    
+document.addEventListener('DOMContentLoaded', () => {
+  const player = document.getElementById('player');
+  if (!player) return;
 
-    // Theme: переключение и сохранение
-    (function initTheme(){
-      const saved = localStorage.getItem('theme');
-      if(saved === 'light') document.documentElement.classList.add('theme-light');
-      const btn = document.getElementById('theme');
-      function label(){
-        const light = document.documentElement.classList.contains('theme-light');
-        btn.textContent = light ? 'Тёмная тема (BETA)' : 'Темная тема (BETA)';
-      }
-      btn.addEventListener('click', ()=>{
-        document.documentElement.classList.toggle('theme-light');
-        const light = document.documentElement.classList.contains('theme-light');
-        localStorage.setItem('theme', light ? 'light' : 'dark');
-        label();
-      });
-      label();
-    })();
+  const audio = player.querySelector('#audio');
+  const unlockBtn = player.querySelector('#unlock');
+
+  // Старт по клику
+  unlockBtn.addEventListener('click', async () => {
+    try {
+      await audio.play();
+      unlockBtn.classList.add('hidden');
+    } catch (e) {
+      console.warn('Не удалось запустить аудио:', e);
+    }
+  });
+
+  // Обновление прогресса
+  audio.addEventListener('timeupdate', () => {
+    const d = audio.duration || 1;
+    const t = audio.currentTime || 0;
+  });
+});
+
 
     // Часы + дата (UTC offset)
     function updateClock(){
