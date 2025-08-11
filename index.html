@@ -1,184 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tg @biofosert</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #000000;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-        .background-table {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                to right,
-                #ffffff 0px,
-                #ffffff 1px,
-                transparent 1px,
-                transparent 50px
-            ), repeating-linear-gradient(
-                to bottom,
-                #ffffff 0px,
-                #ffffff 1px,
-                transparent 1px,
-                transparent 50px
-            );
-            animation: moveTable 20s linear infinite;
-            z-index: -1;
-            opacity: 0.2;
-        }
-        @keyframes moveTable {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-50%, -50%); }
-        }
-        .vignette {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.8) 70%);
-            animation: vignettePulse 10s ease-in-out infinite;
-            z-index: 0;
-        }
-        @keyframes vignettePulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-        }
-        /* Анимация текста bio69mu */
-        .bio-text {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5em;
-            color: transparent; /* Прозрачный базовый цвет для градиента */
-            background: linear-gradient(to right, #ffffff 20%, #808080 50%, #ffffff 80%);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-            animation: textWave 3s ease-in-out infinite;
-            z-index: 2;
-        }
-        @keyframes textWave {
-            0% { background-position: -100% 0; }
-            50% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
-        .verified {
-        position: relative;
-        display: inline-block;
-        margin-left: 5px; /* Отступ от заголовка */
-    }
-    .verified img {
-        width: 16px; /* Размер галочки */
-        height: 16px;
-        vertical-align: middle; /* Выравнивание по вертикали */
-    }
-    .verified::after {
-        content: "Verified!";
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        color: white;
-        padding: 2px 5px;
-        border-radius: 3px;
-        font-size: 12px;
-        white-space: nowrap;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.2s;
-    }
-    .verified:hover::after {
-        opacity: 1;
-        visibility: visible;
-    }
-        .container {
-            text-align: center;
-            max-width: 600px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            position: relative;
-            z-index: 1;
-            font-family: 'Roboto Mono', monospace;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            color: #cccccc;
-        }
-        .button {
-            display: block;
-            width: 80%;
-            margin: 15px auto;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.1em;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            transition: transform 0.3s ease, background 0.5s ease; /* Плавный переход */
-            position: relative;
-            z-index: 2;
-        }
-        .button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(90deg, #e0e0e0, #ffffff, #e0e0e0);
-            background-size: 200% 100%;
-            animation: gradientFlow 3s linear infinite;
-            color: #000000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        @keyframes gradientFlow {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 0%; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <title>Портфолио • @fos3rt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="background-table"></div>
-    <div class="vignette"></div>
-    <!--a href="http://bio.69.mu" class="bio-text">bio69mu</a-->
-    <a href="" class="bio-text">SOON...</a>
-    <div class="container">
-        <h1>Био Фосерта</h1>
-        <p>HTML, CSS, JS, C#, CPP, JAVA DEVELOPER</p>
-        <p></p>
-        <!--<p>Заказать веб-био, soon...</p>-->
-        <a href="https://t.me/fos3rt" class="button">ЛС в телеграм</a>
-        <a href="/port" class="button">Проверка портов</a>
-        <!--a href="https://t.me/kuakzz" class="button">Товары и услуги</a-->
+  <div class="wrap">
+    <div class="actions">
+      <button id="theme" class="btn" aria-label="Переключить тему">Темная тема</button>
+      <!-- <button class="btn" title="Язык интерфейса">RU</button> -->
     </div>
+    <div class="layout">
+      <!-- LEFT: Время / Дата -->
+      <aside class="left card">
+        <h2>Сейчас</h2>
+        <div class="time" id="clock">1</div>
+        <div class="date" id="date">1</div>
+        <!-- <div class="wx">
+          <span class="wx-badge">Погода</span>
+          <span id="weather">Небольшой ливневый дождь, 14.7 °C</span>
+        </div> -->
+      </aside>
+
+      <!-- CENTER: Интро / Описание -->
+      <section class="center card intro">
+        <h1>@fos3rt</h1>
+        <div class="tech">HTML • CSS • PYTHON • JS</div>
+        <div class="chips">
+          <span class="chip">Frontend</span>
+          <span class="chip">Backend</span>
+          <span class="chip">TG Bots</span>
+          <span class="chip live">Работаю</span>
+        </div>
+        <p>
+          Привет! Мне 15 и я (почти) fullstack разработчик. Пишу фронтенд на Nuxt и Vue.js,
+          бекенд на Bun`е. А так же телеграм ботов на Python. Сделаю вам сайт, телеграм бота на заказ. По вопросам - свяжитесь со мной!
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="https://t.me/fos3rt">Связаться со мной (TG)</a>
+          <a href="portfolio.html" class="btn">Портфолио</a>
+        </div>
+      </section>
+
+      <!-- RIGHT: Навыки -->
+      <aside class="right card">
+        <h2>Программирование</h2>
+        <div class="list">
+          <div class="row"><strong>PYTHON</strong><span class="badge ok">Активно</span></div>
+          <div class="row"><strong>HTML</strong><span class="badge ok">Активно</span></div>
+          <div class="row"><strong>CSS</strong><span class="badge ok">Активно</span></div>
+          <div class="row"><strong>JS</strong><span class="badge ok">Активно</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>Copyright © 2025 fosert. All rights reserved. Downloading, copying and editing is not allowed</footer>
+  </div>
+
+  <div id="toast" class="toast">Скопировано</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
-
