@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Проверка порта — @DLCHUB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="glow"></div>
+  <canvas id="fx"></canvas>
+  <div class="wrap">
+    <div class="card">
+      <h1>Проверка статуса порта</h1>
+      <div class="sub">Введите IP/домен и порт. Сайт попытается определить статус порта: открыт / закрыт / фильтруется.</div>
+
+      <div class="row">
+        <div class="long">
+          <label>IP или домен</label>
+          <input id="host" placeholder="например: 8.8.8.8 или example.com" spellcheck="false" />
+        </div>
+        <div>
+          <label>Порт</label>
+          <input id="port" placeholder="80" inputmode="numeric" />
+        </div>
+        <div>
+          <label>Способ проверки</label>
+          <select id="mode">
+            <option value="auto">Автоматически</option>
+            <option value="http">HTTP</option>
+            <option value="https">HTTPS</option>
+            <option value="ws">WebSocket</option>
+            <option value="wss">WebSocket Secure</option>
+          </select>
+        </div>
+        <div>
+          <button id="check">Проверить</button>
+        </div>
+      </div>
+
+      <div class="status" id="status">
+        <div class="dot" id="dot"></div>
+        <div id="text">Готово к проверке</div>
+        <div id="spinner"><div class="spinner"></div></div>
+      </div>
+
+      <div class="grid">
+        <div class="chip">Совет: для HTTP-тестов откройте сайт по <span class="kbd">http://</span>.</div>
+        <div class="chip">HTTPS/ WSS тесты работают из <span class="kbd">https://</span> контекста.</div>
+      </div>
+
+      <div class="help">
+        Ограничения браузера: нельзя делать "чистый TCP/UDP". Результат верен для HTTP(S)/WebSocket. Для прочих протоколов возможны ложные «закрыт/фильтруется».
+      </div>
+
+      <footer>
+        <div>Фронтенд-сканер: эвристики по тайм-аутам и типам ошибок.</div>
+        <div>Тайм-аут по умолчанию: <span class="kbd">4000 ms</span></div>
+      </footer>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">
+    <div></div>
+    <div id="toast-text">Подсказка</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
