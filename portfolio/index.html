@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Портфолио • @fos3rt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <script>
+    // Применяем тему из localStorage ДО отрисовки (переключать можно только на bio.html)
+    (function(){
+      try{
+        const saved = localStorage.getItem('theme');
+        if(saved === 'light') document.documentElement.classList.add('theme-light');
+      }catch(e){}
+    })();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Портфолио</h1>
+      <p class="muted">Ниже представлены мои работы: от сайтов до телеграм-ботов.</p>
+
+      <div class="projects">
+        <div class="proj">
+          <div class="title">fosert: Сайт визитка</div>
+          <div class="desc">Минималистичная личная страница с темой, навыками и контактами.</div>
+          <div class="badges"><a href="http://fosert.3cm.us" class="badge ok">Перейти</a><span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JS</span></div>
+        </div>
+        <div class="proj">
+          <div class="title">fosert: Port Checker</div>
+          <div class="desc">Сайт для проверки статуса портов по URL/IP без back-end. Адаптирован под дескоптные и мобильные устройства.</div>
+          <div class="badges"><a href="http://fosert.3cm.us/port" class="badge ok">Перейти</a><span class="badge">HTML</span><span class="badge">CSS</span></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="bio.html">← Назад к описанию</a>
+      </div>
+    </div>
+
+    <footer>Copyright © 2025 fosert. All rights reserved. Downloading, copying and editing is not allowed</footer>
+  </div>
+</body>
+</html>

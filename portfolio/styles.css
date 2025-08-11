@@ -1,0 +1,88 @@
+
+    :root{
+      --bg:#0b1020; --bg2:#0a0f1a; --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+      --text:#eaf0f7; --muted:#98a6bd; --brand:#7c9eff; --brand2:#7c3aed; --shadow:0 20px 60px rgba(0,0,0,.45);
+    }
+    /* Обновлённая светлая тема в портфолио — идентична bio */
+    html.theme-light{
+      --bg:#eef2f7; 
+      --bg2:#e6ebf3; 
+      --card:#ffffffee; 
+      --border:#cfd8e3; 
+      --text:#0e1624; 
+      --muted:#455567;
+      --brand:#3b82f6; 
+      --brand2:#7c3aed; 
+      --shadow:0 10px 30px rgba(8,15,35,.08);
+    }
+
+    *,*::before,*::after{ box-sizing:border-box }
+    html,body{ margin:0; padding:0 }
+    body{
+      min-height:100svh;
+      font:16px/1.6 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 500px at 110% 20%, rgba(51,92,255,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+    }
+    img,svg{ max-width:100%; height:auto; display:block }
+
+    .wrap{ max-width:1000px; margin:0 auto; padding:40px 20px }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow:var(--shadow);
+      padding:24px;
+      animation: fadein .28s ease both;
+    }
+    @keyframes fadein{ from{ opacity:0; transform: translateY(6px) } }
+
+    h1{ margin:0 0 6px; font-size: clamp(28px, 6vw, 36px) }
+    .muted{ color:var(--muted) }
+
+    a {
+      text-decoration: none;
+    }
+
+    .projects{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:14px;
+    }
+    .proj{
+      padding:14px; border-radius:12px; background: rgba(255,255,255,.04);
+      border:1px solid var(--border); transition: transform .15s ease, background .2s ease;
+    }
+    .proj:hover{ transform: translateY(-2px); background: rgba(255,255,255,.06) }
+    .title{ font-weight: 800 }
+    .desc{ font-size:14px; margin-top:4px; color:var(--muted) }
+    .badges{ margin-top:8px; display:flex; gap:6px; flex-wrap:wrap }
+    .badge{
+      font-size:12px; padding:4px 8px; border-radius:999px;
+      background: rgba(255,255,255,.05); border:1px solid var(--border); color:var(--muted)
+    }
+    .badge.ok{
+      color:#ffffffee;
+      border-color:
+      rgba(255,255,255,.35)
+
+    }
+
+    .actions{ margin-top:24px; display:flex; gap:12px; flex-wrap:wrap }
+    .btn{
+      padding:8px 12px; border-radius:10px; border:none; font-weight:600; cursor:pointer;
+      background:linear-gradient(135deg, var(--brand), var(--brand2)); color:#fff; text-decoration:none; display:inline-flex; align-items:center;
+      line-height:1; font-size:14px; min-height:36px;
+      box-shadow:0 10px 20px rgba(124,58,237,.24); transition: transform .1s ease, opacity .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px) }
+
+    /* Футер — под карточкой, как в bio */
+    footer{ margin-top:18px; font-size:13px; text-align:center; color:var(--muted) }
+  
